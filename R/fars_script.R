@@ -51,7 +51,8 @@ fars_read <- function(filename) {
 #' @export
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("data/accident_%d.csv.bz2", year)
+  # sprintf("data/accident_%d.csv.bz2", year)
+  file.path(system.file("data", package="FARSaccess"), paste0("accident_",as.character(year),".csv.bz2"))
 }
 
 #' Load FARS data files
