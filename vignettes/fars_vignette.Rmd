@@ -1,0 +1,25 @@
+---
+title: "Using the FARSaccess Package"
+author: "JN"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Description
+
+This package provides access to Fatal Accident Reporting System (FARS) data from 2013-2015 and built-in functions to aggregate and visualize FARS data. FARS data is collected by the [National Highway Traffic Safety Administration](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars) and documents traffic fatalaties and associated factors like vehicle types and number of passengers. 2015 is the most recent year currently available.
+
+The package depends on functions from dplyr, tidyr, and readr.
+
+## Loading FARS Data
+
+
+The function `fars_read_years()` returns tibbles containing FARS data for years specified in an integer or character vector. The returned tibbles are separate for each year. Changes to the location or naming of the included FARS data files or invalid year inputs will produce an error. 
+
+## Analyzing FARS Data
+
+This package has some built-in functions for basic summaries of the data that can be used independently of `fars_read_data`. `fars_summarize_years` returns a tibble with counts of FARS records for specified years. `fars_map_state()` maps all records within a US state as specified by its FIPS state code. Detailed latitude and longitudes are included in the dataset and can be used for any other mapping purposes.

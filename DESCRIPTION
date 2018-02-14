@@ -1,0 +1,15 @@
+Package: FARSaccess
+Type: Package
+Title: Access and Analyze Fatal Accident Reporting System (FARS) data
+Version: 0.1.0
+Author: JN
+Maintainer: JN <jn@gmail.com>
+Description: Contains functions to load FARS data from 2013-2015. There are also several functions to aggregate and visualize FARS data.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
