@@ -3,6 +3,7 @@ library(tidyr)
 library(maps)
 library(readr)
 
+
 #' Load single Fatality Analysis Reporting System (FARS) file
 #'
 #' This function reads a specified file as a tibble format (tbl_df class). The \code{filename}
