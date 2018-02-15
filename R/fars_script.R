@@ -1,8 +1,8 @@
 library(dplyr)
 library(tidyr)
 library(maps)
-library(readr)
 
+setwd(file.path(system.file(package="FARSaccess")))
 
 #' Load single Fatality Analysis Reporting System (FARS) file
 #'
@@ -13,7 +13,6 @@ library(readr)
 #'    .xz, or .zip files will be automatically uncompressed. Files starting with http://, https://,
 #'    ftp://, or ftps:// will be automatically downloaded.
 #'
-#' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
 #'
 #' @return tibble containing the specified FARS data. If the file is not found at the specified path
@@ -27,16 +26,15 @@ library(readr)
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
-  data <- suppressMessages({
-    readr::read_csv(filename, progress = FALSE)
-  })
+  data <- get(load(filename))
   dplyr::tbl_df(data)
 }
 
 
 #' Create file name for FARS data file
 #'
-#' This function creates a pathname for FARS data for each specified year.
+#' This function creates a pathname f
+#' or FARS data for each specified year.
 #'
 #' @param year Integer or character string for the year to find data for.
 #'
@@ -51,9 +49,10 @@ fars_read <- function(filename) {
 #' @export
 make_filename <- function(year) {
   year <- as.integer(year)
-  # sprintf("data/accident_%d.csv.bz2", year)
-  file.path(system.file("data", package="FARSaccess"), paste0("accident_",as.character(year),".csv.bz2"))
+  file.path(system.file("data", package="FARSaccess"), paste0("accident_",as.character(year),".rda"))
+  # paste0("accident_",as.character(year))
 }
+
 
 #' Load FARS data files
 #'

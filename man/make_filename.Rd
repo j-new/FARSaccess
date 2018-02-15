@@ -14,7 +14,8 @@ file path for the specified annual FARS data. If the function is not able to coe
    to an integer the function will generate an error.
 }
 \description{
-This function creates a pathname for FARS data for each specified year.
+This function creates a pathname f
+or FARS data for each specified year.
 }
 \examples{
 make_filename(2015)
